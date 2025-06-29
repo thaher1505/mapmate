@@ -1,6 +1,6 @@
-import React from 'react';
-import { Text, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
-import { Place } from '../types';
+import React from "react";
+import { Text, TouchableOpacity, FlatList, StyleSheet } from "react-native";
+import { Place } from "../types";
 
 interface Props {
   history: Place[];
@@ -26,13 +26,13 @@ const styles = StyleSheet.create({
   item: {
     padding: 10,
     borderBottomWidth: 1,
-    borderBottomColor: '#eee',
+    borderBottomColor: "#eee",
   },
   name: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   address: {
     fontSize: 12,
-    color: '#555',
+    color: "#555",
   },
 });

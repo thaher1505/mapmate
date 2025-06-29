@@ -1,15 +1,25 @@
-import React, { useState, useMemo } from 'react';
-import { View, TextInput, FlatList, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import debounce from 'lodash.debounce';
-import { fetchPlaceSuggestions, fetchPlaceDetails } from '../services/placesApi';
-import { Place } from '../types';
+import React, { useState, useMemo } from "react";
+import {
+  View,
+  TextInput,
+  FlatList,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
+import debounce from "lodash.debounce";
+import {
+  fetchPlaceSuggestions,
+  fetchPlaceDetails,
+} from "../services/placesApi";
+import { Place } from "../types";
 
 interface Props {
   onPlaceSelect: (place: Place) => void;
 }
 
 export default function SearchBar({ onPlaceSelect }: Props) {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<any[]>([]);
 
   // ✅ Debounce only once using useMemo
@@ -35,7 +45,7 @@ export default function SearchBar({ onPlaceSelect }: Props) {
     const place = await fetchPlaceDetails(placeId);
     if (place) {
       onPlaceSelect(place);
-      setQuery('');
+      setQuery("");
       setSuggestions([]);
     }
   };
@@ -53,7 +63,10 @@ export default function SearchBar({ onPlaceSelect }: Props) {
           data={suggestions}
           keyExtractor={(item) => item.place_id}
           renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => handleSelect(item.place_id)} style={styles.item}>
+            <TouchableOpacity
+              onPress={() => handleSelect(item.place_id)}
+              style={styles.item}
+            >
               <Text>{item.description}</Text>
             </TouchableOpacity>
           )}
@@ -68,18 +81,18 @@ const styles = StyleSheet.create({
   container: {
     padding: 10,
     zIndex: 1000,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     borderRadius: 8,
     padding: 10,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: "#f9f9f9",
   },
   item: {
     padding: 10,
     borderBottomWidth: 1,
-    borderBottomColor: '#eee',
+    borderBottomColor: "#eee",
   },
 });

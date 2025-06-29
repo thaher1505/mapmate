@@ -1,7 +1,7 @@
-import React from 'react';
-import MapView, { Marker } from 'react-native-maps';
-import { View, StyleSheet } from 'react-native';
-import { Place } from '../types';
+import React from "react";
+import MapView, { Marker } from "react-native-maps";
+import { View, StyleSheet } from "react-native";
+import { Place } from "../types";
 
 interface Props {
   place: Place | null;

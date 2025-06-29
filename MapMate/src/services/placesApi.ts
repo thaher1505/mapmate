@@ -1,6 +1,6 @@
-import { Place } from '../types';
+import { Place } from "../types";
 
-const GOOGLE_MAPS_API_KEY = 'XXXX';
+const GOOGLE_MAPS_API_KEY = "XXXX";
 
 export async function fetchPlaceSuggestions(input: string) {
   const url = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${input}&key=${GOOGLE_MAPS_API_KEY}`;
@@ -9,7 +9,9 @@ export async function fetchPlaceSuggestions(input: string) {
   return data.predictions || [];
 }
 
-export async function fetchPlaceDetails(placeId: string): Promise<Place | null> {
+export async function fetchPlaceDetails(
+  placeId: string
+): Promise<Place | null> {
   const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&key=${GOOGLE_MAPS_API_KEY}`;
   const response = await fetch(url);
   const data = await response.json();

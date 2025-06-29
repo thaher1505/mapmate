@@ -1,7 +1,7 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Place } from '../types';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Place } from "../types";
 
-const HISTORY_KEY = 'search_history';
+const HISTORY_KEY = "search_history";
 
 export async function savePlace(place: Place) {
   const existing = await AsyncStorage.getItem(HISTORY_KEY);

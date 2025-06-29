@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
-import SearchBar from '../components/SearchBar';
-import MapViewComponent from '../components/MapViewComponent';
-import HistoryList from '../components/HistoryList';
-import { Place } from '../types';
-import { savePlace, loadHistory } from '../utils/storage';
+import React, { useState, useEffect, useCallback } from "react";
+import { View, Text, StyleSheet } from "react-native";
+import SearchBar from "../components/SearchBar";
+import MapViewComponent from "../components/MapViewComponent";
+import HistoryList from "../components/HistoryList";
+import { Place } from "../types";
+import { savePlace, loadHistory } from "../utils/storage";
 
 export default function HomeScreen() {
   const [selectedPlace, setSelectedPlace] = useState<Place | null>(null);
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   },
   historyTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     padding: 10,
   },
 });
